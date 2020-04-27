@@ -24,9 +24,7 @@ namespace Kolokwium_1.Controllers
         [HttpGet("{id}")]   
         public IActionResult GetMedicament(int id)
         {
-            
-
-               
+              
             try
             {
                 GetMedicamentResponse res = MedicamentsService.getMedicament(id);
@@ -39,6 +37,16 @@ namespace Kolokwium_1.Controllers
            
             
         }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletePatient(string id)    
+        {
+           
+            return Ok( MedicamentsService.DeletePatient(id));
+        }
+
+
 
 
     }

@@ -148,3 +148,5 @@ GO
 SELECT * FROM Prescription_Medicament WHERE IMedicament =@IdMedicament
 
 SELECT Prescription.IdPrescription, Prescription.Date, DueDate, IdPatient, IdDoctor FROM Prescription JOIN Prescription_Medicament ON Prescription.IdPrescription = Prescription_Medicament.IdPrescription WHERE IdMedicament = 2;
+
+DELETE Patient WHERE Patient.IdPatient = 4;

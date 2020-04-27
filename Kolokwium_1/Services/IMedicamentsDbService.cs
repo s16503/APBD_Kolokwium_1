@@ -10,6 +10,7 @@ namespace Kolokwium_1.Services
     public interface IMedicamentsDbService
     {
         public GetMedicamentResponse getMedicament(int id);
+        public string DeletePatient(string id);
         
 
     }

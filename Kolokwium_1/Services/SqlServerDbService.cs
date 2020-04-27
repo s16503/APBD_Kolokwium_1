@@ -80,5 +80,36 @@ namespace Kolokwium_1.Services
             }
             
         }
-    }
+
+
+        public string DeletePatient(string id)
+        {
+
+            using (var con = new SqlConnection(myConnection))
+            using (var com = new SqlCommand())
+            {
+                com.Connection = con;
+
+                com.Parameters.AddWithValue("IdPatient", id);
+                com.CommandText = "DELETE Patient WHERE Patient.IdPatient = @IdPatient;";
+
+                con.Open();
+                var tran = con.BeginTransaction("SampleTransaction");
+                com.Transaction = tran;
+
+                com.ExecuteNonQuery();
+
+                com.CommandText = "DELETE Prescription WHERE Prescription.IdPatient = @IdPatient;";
+
+                com.ExecuteNonQuery();
+
+
+                tran.Commit();
+
+            }
+
+            return "nie zdążyłem :(";
+
+            }
+        }
 }
