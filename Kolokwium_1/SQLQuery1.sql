@@ -142,3 +142,9 @@ REFERENCES [dbo].[Prescription] ([IdPrescription])
 GO
 ALTER TABLE [dbo].[Prescription_Medicament] CHECK CONSTRAINT [Prescription_Medicament_Prescription]
 GO
+
+
+
+SELECT * FROM Prescription_Medicament WHERE IMedicament =@IdMedicament
+
+SELECT Prescription.IdPrescription, Prescription.Date, DueDate, IdPatient, IdDoctor FROM Prescription JOIN Prescription_Medicament ON Prescription.IdPrescription = Prescription_Medicament.IdPrescription WHERE IdMedicament = 2;
